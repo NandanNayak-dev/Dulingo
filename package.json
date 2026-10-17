@@ -1,0 +1,11 @@
+{
+  "name": "dulingo-root",
+  "version": "1.0.0",
+  "description": "Dulingo — Learn public services by listening (Team Octopus)",
+  "private": true,
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "start": "node server/src/server.js"
+  }
+}

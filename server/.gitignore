@@ -1,0 +1,19 @@
+# Secrets & Environment variables
+.env
+.env.*
+*.local
+
+# Allow example config to be committed safely
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,268 @@
+:root {
+  /* Core Color Tokens */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #d1fae5;
+  --color-primary-shadow: #047857;
+
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-accent-light: #fef3c7;
+  --color-accent-shadow: #b45309;
+
+  --color-secondary: #6366f1;
+  --color-secondary-dark: #4f46e5;
+  --color-secondary-light: #e0e7ff;
+
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+  --color-success: #10b981;
+
+  /* Surfaces & Neutrals (Modern Light Slate Theme by default) */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-muted: #f1f5f9;
+  --bg-elevated: #ffffff;
+  --border-color: #e2e8f0;
+  --border-focus: #10b981;
+
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 16px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.12);
+  --shadow-tactile: 0 4px 0 #047857;
+  --shadow-tactile-accent: 0 4px 0 #b45309;
+  --shadow-tactile-neutral: 0 4px 0 #cbd5e1;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Font sizing scaling (controlled by accessibility toggle) */
+  --scale-font: 1;
+  --font-base: calc(1rem * var(--scale-font));
+}
+
+/* Accessible High Contrast Mode */
+[data-contrast="high"] {
+  --bg-app: #090d16;
+  --bg-card: #131b2e;
+  --bg-card-muted: #1e293b;
+  --border-color: #38bdf8;
+  --text-main: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --color-primary: #34d399;
+  --shadow-tactile: 0 4px 0 #059669;
+}
+
+/* Accessible Text Size Scaling */
+[data-text-size="large"] {
+  --scale-font: 1.15;
+}
+
+[data-text-size="xlarge"] {
+  --scale-font: 1.3;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--text-main);
+  background-color: var(--bg-app);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Tactile 3D Buttons (Duolingo-inspired Civic Learning Buttons) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: calc(1rem * var(--scale-font));
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-tactile);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--color-primary-shadow);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #1e1b4b;
+  box-shadow: var(--shadow-tactile-accent);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-1px);
+}
+
+.btn-accent:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--color-accent-shadow);
+}
+
+.btn-outline {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-tactile-neutral);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-card-muted);
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #94a3b8;
+}
+
+.btn-audio {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 0 #3730a3;
+}
+
+.btn-audio:hover {
+  filter: brightness(1.08);
+}
+
+.btn-audio:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #3730a3;
+}
+
+/* Audio Waveform Micro-Animation */
+@keyframes soundwave {
+  0%, 100% { height: 6px; }
+  50% { height: 22px; }
+}
+
+.waveform-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  animation: soundwave 1.2s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(2) { animation-delay: 0.15s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.45s; }
+
+/* Custom Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: calc(0.825rem * var(--scale-font));
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-green {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.badge-amber {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-dark);
+}
+
+.badge-indigo {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
